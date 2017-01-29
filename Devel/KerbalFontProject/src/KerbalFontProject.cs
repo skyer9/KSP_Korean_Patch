@@ -79,21 +79,19 @@ namespace KerbalFontProject
 			// Print info on the stock font and remove the stock jp font
 			print("Stock font info:");
 			print(FontInfo(stockFont));
-            /*
 			foreach (TMP_FontAsset fallback in stockFont.fallbackFontAssets.ToArray())
 			{
 				print("	  " + FontInfo(fallback));
 
-				if (fallback.name == "NotoSansCJKjp-Regular SDF" || fallback.name == "NotoSansCJKjp-Regular-SHIFTJIS SDF")
+				if (fallback.name == fontName)
 				{
 					stockFont.fallbackFontAssets.Remove(fallback);
 					Destroy(fallback);
 				}
 			}
-            */
 
-			// And insert our new kr font as a fallback
-			stockFont.fallbackFontAssets.Add(notoFont);
+            // And insert our new kr font as a fallback
+            stockFont.fallbackFontAssets.Add(notoFont);
 			print("Font \"" + fontName + "\" added as fallback of stock font");
 
 			print("Modified font info:");
