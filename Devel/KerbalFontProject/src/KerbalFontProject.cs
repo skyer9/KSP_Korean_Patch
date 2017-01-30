@@ -88,7 +88,7 @@ namespace KerbalFontProject
 					stockFont.fallbackFontAssets.Remove(fallback);
 					Destroy(fallback);
 				}
-			}
+            }
 
             // And insert our new kr font as a fallback
             stockFont.fallbackFontAssets.Add(notoFont);
@@ -99,10 +99,8 @@ namespace KerbalFontProject
 			foreach (TMP_FontAsset fallback in stockFont.fallbackFontAssets)
 			{
 				print("	  " + FontInfo(fallback));
-			}
-		}
-
-
+            }
+        }
 
 		// I hoped all loaded font were in MaterialReferenceManager but it is not the case...
 		private static void FontManagerLookup()
