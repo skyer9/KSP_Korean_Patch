@@ -46,8 +46,9 @@ namespace KerbalFontProject
 			// string notoFontPath = gameDataPath + "/KerbalFontProject/notoshiftjis.font";
 			// string fontName = "NotoSansCJKjp-Regular-SHIFTJIS SDF";
 
-			string notoFontPath = gameDataPath + "/KerbalFontProject/NotoSansCJKkr-Regular.unity3d";
-			string fontName = "NotoSansCJKkr-Regular SDF";
+			// dll file exists in C:\Games\ksp-win_dev\GameData\KerbalFontProject
+			string notoFontPath = gameDataPath + "/KerbalFontProject/notosanscjkkr-light.font";
+			string fontName = "NotoSansCJKkr-Light SDF";
 
 			// Load the font asset bundle
 			AssetBundleCreateRequest bundleLoadRequest = AssetBundle.LoadFromFileAsync(notoFontPath);
@@ -77,15 +78,23 @@ namespace KerbalFontProject
 			{
 				print("	  " + FontInfo(fallback));
 
-				if (fallback.name == fontName)
+				/*
+				if (fallback.name == "NotoSansCJKjp-Regular SDF" || fallback.name == "NotoSansCJKjp-Regular-SHIFTJIS SDF")
 				{
 					stockFont.fallbackFontAssets.Remove(fallback);
 					Destroy(fallback);
 				}
-            }
+				*/
 
-            // And insert our new kr font as a fallback
-            stockFont.fallbackFontAssets.Add(notoFont);
+				if (fallback.name == "NotoSansCJKkr-Light SDF")
+				{
+					stockFont.fallbackFontAssets.Remove(fallback);
+					Destroy(fallback);
+				}
+			}
+
+			// And insert our new jp font as a fallback
+			stockFont.fallbackFontAssets.Add(notoFont);
 			print("Font \"" + fontName + "\" added as fallback of stock font");
 
 			print("Modified font info:");
@@ -93,8 +102,9 @@ namespace KerbalFontProject
 			foreach (TMP_FontAsset fallback in stockFont.fallbackFontAssets)
 			{
 				print("	  " + FontInfo(fallback));
-            }
-        }
+				print("		  " + fallback.material.shader);
+			}
+		}
 
 		// I hoped all loaded font were in MaterialReferenceManager but it is not the case...
 		private static void FontManagerLookup()
