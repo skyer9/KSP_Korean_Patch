@@ -21,12 +21,6 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-/*
-Open Developer Command for VS2015
-cd (C:\source\folder)\KerbalFontProject\src
-csc /r:(C:\ksp\folder)\KSP_Data\Managed\UnityEngine.dll /r:(C:\ksp\folder)\KSP_Data\Managed\Assembly-CSharp.dll /target:library /out:KerbalFontProject.dll /warn:0 /nologo *.cs
-*/
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
